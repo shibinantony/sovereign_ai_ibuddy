@@ -1,0 +1,44 @@
+{
+  "name": "sovereign-ai-ibuddy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private-by-default AI reference implementation for sensitive knowledge-work pilots",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibinantony/sovereign_ai_ibuddy.git"
+  },
+  "keywords": [
+    "private-ai",
+    "sovereign-ai",
+    "responsible-ai",
+    "bfsi",
+    "pharma",
+    "llama-cpp",
+    "qwen"
+  ],
+  "scripts": {
+    "setup": "npm run setup:offline",
+    "setup:core": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup.ps1",
+    "model:install": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-local-model.ps1",
+    "setup:offline": "npm run setup:core && npm run model:install",
+    "dev": "concurrently --kill-others --names api,web --prefix-colors blue,green \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m uvicorn backend.app.asgi:app --reload --port 8000",
+    "dev:web": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m uvicorn backend.app.asgi:app --host 127.0.0.1 --port 8000",
+    "test": "npm run test:backend && npm run test:installer && npm run typecheck",
+    "test:backend": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m unittest discover -s backend/tests -v",
+    "test:installer": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/test-installer-config.ps1",
+    "typecheck": "npm --prefix frontend run typecheck && powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m compileall -q backend",
+    "lint": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m ruff check backend && npm --prefix frontend run typecheck",
+    "format": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/run-python.ps1 -m ruff format backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.9.3"
+}

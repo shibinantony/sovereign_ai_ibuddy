@@ -1,0 +1,54 @@
+name: Feature request
+description: Propose an outcome that advances private or sovereign AI adoption.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Describe the business problem without including confidential, customer, or
+        regulated information.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Business problem
+      description: Who is affected, what fails today, and why it matters.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome and measure
+      description: Define the expected result and a measurable success signal.
+    validations:
+      required: true
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Primary deployment context
+      options:
+        - Local workstation
+        - Enterprise on-premises
+        - Sovereign or regulated cloud
+        - Deployment-neutral
+    validations:
+      required: true
+  - type: textarea
+    id: controls
+    attributes:
+      label: Security, privacy, and governance considerations
+      description: Note data residency, auditability, access control, or compliance needs.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data safety
+      options:
+        - label: This request contains no secrets, personal data, customer data, or regulated content.
+          required: true
