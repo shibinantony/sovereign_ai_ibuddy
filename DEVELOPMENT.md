@@ -50,7 +50,7 @@ Model weights, llama.cpp binaries, SQLite data, `.env`, virtual environments, de
 - Windows x64
 - PowerShell 5.1+
 - Python 3.11
-- Node.js 20+
+- Node.js 22+ (LTS)
 - npm 10+
 - 16 GB RAM minimum practical local profile
 - approximately 12 GB free during full installation

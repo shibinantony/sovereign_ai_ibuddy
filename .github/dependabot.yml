@@ -26,6 +26,9 @@ updates:
       frontend-npm-minor-and-patch:
         patterns: ["*"]
         update-types: [minor, patch]
+    ignore:
+      - dependency-name: "@vitejs/plugin-react"
+        versions: [">= 6.0.0"]
 
   - package-ecosystem: pip
     directory: /backend

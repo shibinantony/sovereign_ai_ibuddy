@@ -108,7 +108,7 @@ The current release intentionally uses one API worker and one generation slot. I
 
 ## Run the reference implementation
 
-Prerequisites: Windows x64, PowerShell 5.1+, Python 3.11, Node.js 20+, npm 10+, at least 16 GB RAM, and approximately 12 GB free during installation.
+Prerequisites: Windows x64, PowerShell 5.1+, Python 3.11, Node.js 22+, npm 10+, at least 16 GB RAM, and approximately 12 GB free during installation.
 
 ```powershell
 npm run setup
