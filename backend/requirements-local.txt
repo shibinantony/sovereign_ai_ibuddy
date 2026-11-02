@@ -1,5 +1,5 @@
 -r requirements-dev.txt
-transformers==5.19.0
-torch==2.14.1
+transformers==5.22.0
+torch==2.15.0
 accelerate==1.15.0
 sentencepiece==0.2.2
